@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+import notebookStore from "../../stores/notebookStore";
 
 //Styling
 import { CreateButtonStyled, ModalStyle } from "./styles";
@@ -15,8 +16,10 @@ const NotebookModal = ({ isOpen, closeModal }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(notebook);
+    notebookStore.createNotebook(notebook);
+    closeModal();
   };
+
   return (
     <Modal
       isOpen={isOpen}

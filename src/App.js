@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <h1>Notebooks:</h1>
-      <NotebookList />;
+      <NotebookList />
     </div>
   );
 }
