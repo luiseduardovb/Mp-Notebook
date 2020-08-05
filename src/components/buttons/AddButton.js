@@ -5,7 +5,7 @@ import { AddButtonStyled } from "./styles";
 import NotebookModal from "../modals/NotebookModal";
 import NoteModal from "../modals/NoteModal";
 
-const AddButton = ({ notebookId }) => {
+const AddButton = ({ notebook }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const closeModal = () => setIsOpen(false);
@@ -14,9 +14,9 @@ const AddButton = ({ notebookId }) => {
   return (
     <div>
       <AddButtonStyled onClick={openModal} />
-      {notebookId ? (
+      {notebook ? (
         <NoteModal
-          notebookId={notebookId}
+          notebook={notebook}
           isOpen={isOpen}
           closeModal={closeModal}
         />

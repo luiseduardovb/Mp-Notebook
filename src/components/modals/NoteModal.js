@@ -5,11 +5,13 @@ import noteStore from "../../stores/noteStore";
 //Styling
 import { CreateButtonStyled, ModalStyle } from "./styles";
 
-const NoteModal = ({ isOpen, closeModal, notebookId }) => {
-  const [note, setNote] = useState({
-    title: "",
-    body: "",
-  });
+const NoteModal = ({ isOpen, closeModal, notebook, oldNote }) => {
+  const [note, setNote] = useState(
+    oldNote ?? {
+      title: "",
+      body: "",
+    }
+  );
 
   const handleChange = (event) => {
     setNote({ ...note, [event.target.name]: event.target.value });
@@ -17,7 +19,7 @@ const NoteModal = ({ isOpen, closeModal, notebookId }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    noteStore.createNote(note, notebookId);
+    noteStore[oldNote ? "updateNote" : "createNote"](note, notebook);
     closeModal();
   };
 
@@ -29,7 +31,9 @@ const NoteModal = ({ isOpen, closeModal, notebookId }) => {
       contentLabel="Example Modal"
     >
       <form onSubmit={handleSubmit}>
-        <h3 style={{ textAlign: "center" }}>Create New Note</h3>
+        <h3 style={{ textAlign: "center" }}>
+          {oldNote ? "Update your Note" : "Create New Note"}
+        </h3>
         <div className="form-group row">
           <div className="col-12">
             <label>Title:</label>
@@ -55,10 +59,32 @@ const NoteModal = ({ isOpen, closeModal, notebookId }) => {
               value={note.body}
             />
           </div>
+          <div className="col-12">
+            <label>Select Tag:</label>
+
+            <select
+              type="text"
+              defaultValue=""
+              className="form-control"
+              name="body"
+              onChange={handleChange}
+              // value={note.body}
+            >
+              <option value="" disabled>
+                Tags
+              </option>
+              <option value="grapefruit">Grapefruit</option>
+              <option value="lime">Lime</option>
+              <option selected value="Tags">
+                Coconut
+              </option>
+              <option value="mango">Mango</option>
+            </select>
+          </div>
         </div>
 
         <CreateButtonStyled className="btn float-right">
-          Create
+          {oldNote ? "Update" : "Create"}
         </CreateButtonStyled>
       </form>
     </Modal>
