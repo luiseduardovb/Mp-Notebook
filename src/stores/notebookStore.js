@@ -2,16 +2,16 @@ import { decorate, observable } from "mobx";
 import axios from "axios";
 
 class NotebookStore {
-  notebooks = [];
+  notebooks = [{ name: "to-do", slug: "to-do", id: 1 }];
 
-  fetchNotebooks = async () => {
-    try {
-      const response = await axios.get("http://localhost:8000/notebooks");
-      this.notebooks = response.data;
-    } catch (error) {
-      console.error("NotebookStore -> fetchNotebooks -> error", error);
-    }
-  };
+  // fetchNotebooks = async () => {
+  //   try {
+  //     const response = await axios.get("http://localhost:8000/notebooks");
+  //     this.notebooks = response.data;
+  //   } catch (error) {
+  //     console.error("NotebookStore -> fetchNotebooks -> error", error);
+  //   }
+  // };
 
   createNotebook = async (newNotebook) => {
     try {
@@ -29,5 +29,5 @@ class NotebookStore {
 decorate(NotebookStore, { notebooks: observable });
 
 const notebookStore = new NotebookStore();
-notebookStore.fetchNotebooks();
+// notebookStore.fetchNotebooks();
 export default notebookStore;
