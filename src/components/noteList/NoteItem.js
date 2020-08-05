@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react";
 
 const NoteItem = ({ note }) => {
   return (
@@ -9,4 +10,4 @@ const NoteItem = ({ note }) => {
   );
 };
 
-export default NoteItem;
+export default observer(NoteItem);
