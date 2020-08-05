@@ -1,22 +1,22 @@
 import React from "react";
-import NotebookList from "./components/notebookList";
-import { Route, Switch } from "react-router";
-import NotebookDetail from "./components/notebookDetail";
+import Routes from "./components/Routes";
+import notebookStore from "./stores/notebookStore";
+import { observer } from "mobx-react";
+import { LoadingIcon } from "./styles";
 
 function App() {
   return (
     <div>
-      <Switch>
-        <Route path="/notebooks/:notebookSlug">
-          <NotebookDetail />
-        </Route>
-        <Route path="/notebooks">
-          <h1>Notebooks:</h1>
-          <NotebookList />
-        </Route>
-      </Switch>
+      {notebookStore.loading ? (
+        <>
+          {" "}
+          <LoadingIcon />{" "}
+        </>
+      ) : (
+        <Routes />
+      )}
     </div>
   );
 }
 
-export default App;
+export default observer(App);
