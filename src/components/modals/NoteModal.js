@@ -5,7 +5,7 @@ import noteStore from "../../stores/noteStore";
 //Styling
 import { CreateButtonStyled, ModalStyle } from "./styles";
 
-const NoteModal = ({ isOpen, closeModal }) => {
+const NoteModal = ({ isOpen, closeModal, notebookId }) => {
   const [note, setNote] = useState({
     title: "",
     body: "",
@@ -17,7 +17,7 @@ const NoteModal = ({ isOpen, closeModal }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    noteStore.createNote(note);
+    noteStore.createNote(note, notebookId);
     closeModal();
   };
 

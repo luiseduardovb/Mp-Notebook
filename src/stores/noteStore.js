@@ -13,9 +13,12 @@ class NoteStore {
     }
   };
 
-  createNote = async (newNote) => {
+  createNote = async (newNote, notebookId) => {
     try {
-      const res = await axios.post("http://localhost:8000/notes", newNote);
+      const res = await axios.post(
+        `http://localhost:8000/${notebookId}/notes`,
+        newNote
+      );
       this.notes.push(res.data);
     } catch (error) {
       console.error("NoteStore -> createNote -> error", error);
