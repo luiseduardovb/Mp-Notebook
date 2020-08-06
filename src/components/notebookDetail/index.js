@@ -10,6 +10,7 @@ import NoteList from "../noteList";
 
 //Components
 import AddButton from "../buttons/AddButton";
+import { LoadingIcon } from "../../styles";
 
 const NotebookDetail = () => {
   const { notebookSlug } = useParams();
@@ -32,7 +33,7 @@ const NotebookDetail = () => {
       <h2>Tags:</h2>
       <button>All</button>
       {noteStore.tags.map((tag) => (
-        <button onClick={() => filterTag(tag)}>{tag}</button>
+        <button onClick={() => filterTag(tag)}>{tag.name}</button>
       ))}
       <NoteList notes={notes} />
       <AddButton notebook={notebook} />

@@ -12,8 +12,9 @@ class NoteStore {
 
   fetchTags = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/notes/tags");
+      const response = await axios.get("http://localhost:8000/tags");
       this.tags = response.data;
+      console.log("NoteStore -> fetchTags -> this.tags", this.tags);
     } catch (error) {
       console.error("NoteStore -> fetchTags -> error", error);
     }

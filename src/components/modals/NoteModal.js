@@ -79,7 +79,7 @@ const NoteModal = ({ isOpen, closeModal, notebook, oldNote }) => {
               </option>
 
               {noteStore.tags.map((tag) => (
-                <option value={tag}>{tag}</option>
+                <option value={tag}>{tag.name}</option>
               ))}
             </select>
             <div className="col-12">
@@ -91,6 +91,7 @@ const NoteModal = ({ isOpen, closeModal, notebook, oldNote }) => {
                 name="tags"
                 onChange={handleChange}
                 value={note.tags}
+                console.log("NoteModal -> note.tags", note.tags)
               />
             </div>
           </div>
