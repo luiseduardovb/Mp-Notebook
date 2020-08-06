@@ -11,13 +11,16 @@ const NotebookList = () => {
   ));
 
   return (
-    <Main>
-      <PageContent>
-        <PageTitle>Notebooks</PageTitle>
-        <NotebookRow>{notebookList}</NotebookRow>
-        <AddButton />
-      </PageContent>
-    </Main>
+    <>
+      <PageTitle>Notebooks</PageTitle>
+
+      <Main>
+        <PageContent>
+          <NotebookRow>{notebookList}</NotebookRow>
+          <AddButton />
+        </PageContent>
+      </Main>
+    </>
   );
 };
 

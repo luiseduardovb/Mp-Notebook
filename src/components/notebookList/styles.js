@@ -40,7 +40,7 @@ export const StyledP = styled.p`
   margin-bottom: auto;
   color: black;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1;
 `;
 export const Main = styled.main`
   min-height: 250px;
@@ -57,10 +57,11 @@ export const PageContent = styled.div`
 
 export const PageTitle = styled.h3`
   font-size: 22px;
-  margin-bottom: 20px;
-  color: white;
+  margin-bottom: 50px;
+  color: black;
   font-family: inherit;
   font-weight: 500;
   line-height: 1.2;
-  margin-top: 0;
+  margin-top: 50px;
+  text-align: center;
 `;

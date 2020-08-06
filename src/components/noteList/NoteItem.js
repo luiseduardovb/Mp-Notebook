@@ -2,16 +2,20 @@ import React from "react";
 import { observer } from "mobx-react";
 import UpdateButton from "../buttons/UpdateButton";
 import DeleteButton from "../buttons/DeleteButton";
+import { StyledP } from "./styles";
 
 const NoteItem = ({ note }) => {
   return (
-    <div className="container-fluid">
-      <h2 className="row">
-        {note.title} <UpdateButton note={note} />{" "}
+    <>
+      <StyledP>
+        {note.title}
+        <UpdateButton note={note} />
+      </StyledP>
+      <StyledP>
+        {note.body}
         <DeleteButton noteId={note.id} />
-      </h2>
-      <h4>{note.body}</h4>
-    </div>
+      </StyledP>
+    </>
   );
 };
 

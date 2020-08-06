@@ -11,7 +11,6 @@ const Routes = () => {
         <NotebookDetail />
       </Route>
       <Route path="/notebooks">
-        <h1>Notebooks:</h1>
         <NotebookList />
       </Route>
       <Route path="/">
