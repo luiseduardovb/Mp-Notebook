@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
+import notes from "./notes.png";
 
 export const NotebookRow = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ export const CustomCol = styled.div`
 
 export const NoteBox = styled.div`
   background-color: black;
-  background-image: url("./notes.png");
+  background-image: url(${notes});
   padding: 20px 15px 20px 15px;
   /* background-position: 12px center; */
   background-size: cover;

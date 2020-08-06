@@ -4,6 +4,11 @@ import axios from "axios";
 class NoteStore {
   notes = [];
   tags = [];
+  filteredNotes = this.notes;
+
+  filteredNotes = (tag, notes) => {
+    return notes.filter((note) => note.tag === tag);
+  };
 
   fetchTags = async () => {
     try {

@@ -9,7 +9,6 @@ const NoteItem = ({ note }) => {
     <>
       <StyledP>
         <MarkdownText source={note.title} />
-
         <UpdateButton note={note} />
         <MarkdownText source={note.body} />
       </StyledP>

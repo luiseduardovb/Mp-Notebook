@@ -83,7 +83,7 @@ const NoteModal = ({ isOpen, closeModal, notebook, oldNote }) => {
               ))}
             </select>
             <div className="col-12">
-              <label>Create Tag:</label>
+              <label>Custom Tag:</label>
               <input
                 type="text"
                 placeholder="Custom Tag"

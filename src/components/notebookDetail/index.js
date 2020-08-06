@@ -22,11 +22,7 @@ const NotebookDetail = () => {
     .filter((note) => note);
 
   const filterTag = (tag) => {
-    notes = notes.filter((note) => note.tags.id === tag);
-
-    // notes = notes.filter((note) => {
-    //   note.tags = tag;
-    // });
+    notes = notes.filter((note) => note.tags === tag).map((_tag) => _tag);
   };
 
   return (
@@ -34,8 +30,9 @@ const NotebookDetail = () => {
       <Link to="/notebooks">Back</Link>
       <h1>{notebook.name} Notebook:</h1>
       <h2>Tags:</h2>
+      <button>All</button>
       {noteStore.tags.map((tag) => (
-        <button onClick={filterTag(tag.id)}>{tag}</button>
+        <button onClick={() => filterTag(tag)}>{tag}</button>
       ))}
       <NoteList notes={notes} />
       <AddButton notebook={notebook} />

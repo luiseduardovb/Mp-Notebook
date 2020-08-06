@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import notebook from "./notebook.png";
 
 export const NotebookRow = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ export const CustomCol = styled.div`
 
 export const NotebookBox = styled.div`
   background-color: black;
-  background-image: url("./notebook.png");
+  background-image: url(${notebook});
   padding: 20px 15px 20px 15px;
   /* background-position: 12px center; */
   background-size: cover;
