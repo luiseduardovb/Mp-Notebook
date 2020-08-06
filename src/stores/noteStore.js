@@ -3,6 +3,26 @@ import axios from "axios";
 
 class NoteStore {
   notes = [];
+  tags = [];
+
+  fetchTags = async () => {
+    try {
+      const response = await axios.get("http://localhost:8000/notes/tags");
+      this.tags = response.data;
+    } catch (error) {
+      console.error("NoteStore -> fetchTags -> error", error);
+    }
+  };
+
+  createTags = async (newTag) => {
+    try {
+      const res = await axios.post(`http://localhost:8000/notes/tags`, newTag);
+      this.tags.push(res.data);
+      // notebook.notes.push({ id: res.data.id });
+    } catch (error) {
+      console.error("NoteStore -> createNote -> error", error);
+    }
+  };
 
   fetchNotes = async () => {
     try {
@@ -56,8 +76,9 @@ class NoteStore {
     }
   };
 }
-decorate(NoteStore, { notes: observable });
+decorate(NoteStore, { notes: observable, tags: observable });
 
 const noteStore = new NoteStore();
 noteStore.fetchNotes();
+noteStore.fetchTags();
 export default noteStore;

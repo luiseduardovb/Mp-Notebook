@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import noteStore from "../../stores/noteStore";
 
+//Markdown
+import TextareaAutosize from "react-textarea-autosize";
+
 //Styling
 import { CreateButtonStyled, ModalStyle } from "./styles";
+import { observer } from "mobx-react";
 
 const NoteModal = ({ isOpen, closeModal, notebook, oldNote }) => {
   const [note, setNote] = useState(
     oldNote ?? {
       title: "",
       body: "",
+      tags: "",
     }
   );
 
@@ -49,7 +54,7 @@ const NoteModal = ({ isOpen, closeModal, notebook, oldNote }) => {
           </div>
           <div className="col-12">
             <label>Your Note:</label>
-            <textArea
+            <TextareaAutosize
               type="text"
               placeholder="Write your Note"
               required
@@ -63,23 +68,31 @@ const NoteModal = ({ isOpen, closeModal, notebook, oldNote }) => {
             <label>Select Tag:</label>
 
             <select
-              type="text"
-              defaultValue=""
+              id={note.id}
+              name="tags"
               className="form-control"
-              name="body"
               onChange={handleChange}
-              // value={note.body}
+              defaultValue="tagless"
             >
-              <option value="" disabled>
+              <option value="tagless" disabled>
                 Tags
               </option>
-              <option value="grapefruit">Grapefruit</option>
-              <option value="lime">Lime</option>
-              <option selected value="Tags">
-                Coconut
-              </option>
-              <option value="mango">Mango</option>
+
+              {noteStore.tags.map((tag) => (
+                <option value={tag}>{tag}</option>
+              ))}
             </select>
+            <div className="col-12">
+              <label>Create Tag:</label>
+              <input
+                type="text"
+                placeholder="Custom Tag"
+                className="form-control"
+                name="tags"
+                onChange={handleChange}
+                value={note.tags}
+              />
+            </div>
           </div>
         </div>
 
@@ -91,4 +104,4 @@ const NoteModal = ({ isOpen, closeModal, notebook, oldNote }) => {
   );
 };
 
-export default NoteModal;
+export default observer(NoteModal);

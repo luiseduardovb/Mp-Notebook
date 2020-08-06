@@ -18,7 +18,7 @@ export const CustomCol = styled.div`
 
 export const NotebookBox = styled.div`
   background-color: black;
-  background-image: url(https://lh3.googleusercontent.com/proxy/iftv1ws4jOLd4GZeX6tQhyOR6Cbnl8hri5b3GAR2LOII6drqTmAVMhJNC1AGPPQRp1xdTzBvVZkg7pUgF4pi1BrJnmzR77IDGM7iIBrN3LAd-KFCB2Y8w25X12vK8nYk9HBF6iehgdD5l1PbLWkHKRI);
+  background-image: url("./notebook.png");
   padding: 20px 15px 20px 15px;
   /* background-position: 12px center; */
   background-size: cover;

@@ -2,19 +2,21 @@ import React from "react";
 import { observer } from "mobx-react";
 import UpdateButton from "../buttons/UpdateButton";
 import DeleteButton from "../buttons/DeleteButton";
-import { StyledP } from "./styles";
+import { StyledP, StyledT, MarkdownText } from "./styles";
 
 const NoteItem = ({ note }) => {
   return (
     <>
       <StyledP>
-        {note.title}
+        <MarkdownText source={note.title} />
+
         <UpdateButton note={note} />
+        <MarkdownText source={note.body} />
       </StyledP>
-      <StyledP>
-        {note.body}
+      <StyledT>
+        <MarkdownText source={note.tags} />
         <DeleteButton noteId={note.id} />
-      </StyledP>
+      </StyledT>
     </>
   );
 };

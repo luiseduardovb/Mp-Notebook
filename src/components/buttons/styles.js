@@ -15,8 +15,6 @@ export const AddButtonStyled = styled(AiOutlinePlusCircle)`
 
 export const UpdateButtonStyled = styled(FaRegEdit)`
   font-size: 1rem;
-  margin-top: auto;
-  margin-bottom: auto;
   margin-left: 310px;
 
   :hover {
@@ -26,8 +24,6 @@ export const UpdateButtonStyled = styled(FaRegEdit)`
 
 export const DeleteButtonStyled = styled(AiOutlineDelete)`
   font-size: 1rem;
-  margin-top: 0;
-  margin-bottom: 0;
   margin-left: 360px;
 
   color: red;

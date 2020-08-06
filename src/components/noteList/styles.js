@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ReactMarkdown from "react-markdown";
 
 export const NotebookRow = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ export const CustomCol = styled.div`
 
 export const NoteBox = styled.div`
   background-color: black;
-  background-image: url(https://lh3.googleusercontent.com/proxy/kpseAHUw_MWz353CrzsMB71Elx3ja53yac4FCAZ-ZAV_-aIQbn8ud8g7KKsvMlL0hdeiPvvo6ziUbxo3X_AfUv6Uvg);
+  background-image: url("./notes.png");
   padding: 20px 15px 20px 15px;
   /* background-position: 12px center; */
   background-size: cover;
@@ -45,6 +46,21 @@ export const StyledP = styled.p`
   line-height: 1.2;
   text-align: left;
 `;
+
+export const MarkdownText = styled(ReactMarkdown)`
+  text-align: left;
+`;
+
+export const StyledT = styled.p`
+  font-size: 15px;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: red;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: left;
+`;
+
 export const Main = styled.main`
   min-height: 250px;
   width: 100%;
