@@ -3,6 +3,7 @@ import NotebookItem from "./NotebookItem";
 import notebookStore from "../../stores/notebookStore";
 import AddButton from "../buttons/AddButton";
 import { observer } from "mobx-react";
+import { Main, NotebookRow, PageContent, PageTitle } from "./styles";
 
 const NotebookList = () => {
   const notebookList = notebookStore.notebooks.map((notebook) => (
@@ -10,10 +11,13 @@ const NotebookList = () => {
   ));
 
   return (
-    <>
-      <div>{notebookList}</div>
-      <AddButton />
-    </>
+    <Main>
+      <PageContent>
+        <PageTitle>Notebooks</PageTitle>
+        <NotebookRow>{notebookList}</NotebookRow>
+        <AddButton />
+      </PageContent>
+    </Main>
   );
 };
 
